@@ -1,43 +1,30 @@
 {
-  "name": "kanban",
+  "name": "kanban-fork",
   "version": "1.0.0",
   "description": "",
   "main": "models.js",
   "scripts": {
-    "start": "node server.js",
-    "watch": "NODE_ENV=dev PORT=3000 nodemon server.js",
-    "test": "PORT=3001 jest --watchAll",
-    "test:cypress": "PORT=3001 cypress open"
+    "test": "jest --watchAll",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/JSafrany/kanban.git"
+    "url": "git+https://github.com/Kara-S/kanban.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JSafrany/kanban/issues"
+    "url": "https://github.com/Kara-S/kanban/issues"
   },
-  "engines": {
-    "node": "14",
-    "npm": "6"
-  },
-  "homepage": "https://github.com/JSafrany/kanban#readme",
+  "homepage": "https://github.com/Kara-S/kanban#readme",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.3",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
     "handlebars": "^4.7.6",
-    "jest": "^26.5.3",
-    "nodemon": "^2.0.5",
-    "pg": "^8.4.1",
-    "postgresql": "0.0.1",
+    "jest": "^26.6.0",
+    "nodemon": "^2.0.6",
     "sequelize": "^6.3.5",
     "sqlite3": "^5.0.0"
-  },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "cypress": "^5.4.0",
-    "mocha": "^8.2.0"
   }
 }
