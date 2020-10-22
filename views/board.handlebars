@@ -1,34 +1,39 @@
-    <title>{{board.name}}</title>
+<title>{{board.name}}</title>
 
-    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #173753;">
+<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #173753;">
 
-        <a class="navbar-brand" href="/" style="color: white;">Faire</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#createBoard" style="color: white;">Create Board</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#createTask" style="color: white;">Add task <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/boards/{{board.id}}/delete" style="color: white;">Delete Board</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#addUser" style="color: white;">Assign User To Board</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#removeUser" style="color: white;">Remove User From Board</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    {{!-- Navbar logo --}}
+    <a class="navbar-brand" href="/" style="color: white;">Faire</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        {{!-- Navbar links --}}
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#createBoard" style="color: white;">Create Board</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#createTask" style="color: white;">Add task <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/boards/{{board.id}}/delete" style="color: white;">Delete Board</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#addUser" style="color: white;">Assign User To Board</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#removeUser" style="color: white;">Remove User From Board</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
 
+{{!-- Remove User From Board popup --}}
 <div id="removeUser" class="overlay">
     <div class="popup">
         <h2>Remove User From {{board.name}}</h2>
@@ -47,7 +52,7 @@
 </div>
 
 
-
+{{!-- Assign User To Board popup --}}
 <div id="addUser" class="overlay">
     <div class="popup">
         <h2>Assign User to {{board.name}}</h2>
@@ -66,16 +71,22 @@
 </div>
 
 
+{{!-- Add Task popup --}}
 <div id="createTask" class="overlay">
     <div class="popup">
+
         <h2>Add Task</h2>
+
         <a class="close" href="#">&times;</a>
         <div class="content">
             <form action='/boards/{{board.id}}/tasks/create' method='POST'>
+                
                 <label>Task Title:</label>
                 <input type='text' name='taskName' required /><br>
+
                 <label>Description:</label>
                 <input type='text' name='taskDescription' required /><br>
+
                 <label>Priority:</label>
                 <select name='priority'>
                     <option name="low1">Low</option>
@@ -83,6 +94,7 @@
                     <option name='high1'>High</option>
                     <option name='urg1'>Urgent</option>
                 </select><br>
+
                 <label>Assignee</label>
                 <select name='assignee'>
                     <option name="none"></option>
@@ -90,44 +102,49 @@
                         <option name="{{this.username}}"> {{this.username}} </option>
                     {{/each}}
                 </select><br>
+
                 <label>Deadline</label>
                 <input type="date" name="deadline" min="2020-01-01" max="2100-01-01"/><br>
                 <input type='hidden' name="status" value='to do' />
+
                 <button class="popupbtn">submit</button>
             </form>
         </div>
+
     </div>
 </div>
 
 
+{{!-- Create Board popup --}}
 <div id="createBoard" class="overlay">
 	<div class="popup">
 		<h2>Create Board</h2>
 		<a class="close" href="#">&times;</a>
 		<div class="content">
 			<form action='/boards/create' method='POST'>
-        <label>Name:</label>
-        <input type='text' name = 'name' required/><br>
-        <label>Description:</label>
-        <input type='text' name ='description' required/><br>
-
-
-        <button class="popupbtn">submit</button>
-    </form>
+                <label>Name:</label>
+                <input type='text' name = 'name' required/><br>
+                <label>Description:</label>
+                <input type='text' name ='description' required/><br>
+                <button class="popupbtn">submit</button>
+            </form>
 		</div>
 	</div>
 </div>
 
-    <div class="jumbotron" style="background-color: #98CAEC;">
-        <h1 class="display-4">{{board.name}}</h1>
-        {{#each boardUsers}}
-        <a href="/users/{{this.id}}">
-        <div class="avatar-box" >
-            <img class="profile-pic" src={{this.avatar}} />
-        </div>
-        </a>
-        {{/each}}
+
+{{!-- Avatar of user assigned to board --}}
+<div class="jumbotron" style="background-color: #98CAEC;">
+    <h1 class="display-4">{{board.name}}</h1>
+    {{#each boardUsers}}
+    <a href="/users/{{this.id}}">
+    <div class="avatar-box" >
+        <img class="profile-pic" src={{this.avatar}} />
     </div>
+    </a>
+    {{/each}}
+</div>
+
 
 <main id="app"></main>
 
@@ -139,8 +156,10 @@ console.log('script running')
         done:[],
         users:[]
     }
+
+    // Board columns flexbox: draggable tasks and edit/delete buttons
     const view = (state)=>`
-        <div class="tasks-boards-flexbox">
+        <div class="tasks-boards-flexbox"> 
             <div class="flexbox-row">
                 <div class="flexbox-column">
                     <div class="flexbox-column" ondragover="event.preventDefault()" ondrop="app.run('onDropToDo',event)">
@@ -401,14 +420,15 @@ const update={
         return state
     }
 }
+
 app.start('app',state,view,update)
 app.run('getTasks')
 </script>
 
 
-                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                        crossorigin="anonymous"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-                        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-                        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>

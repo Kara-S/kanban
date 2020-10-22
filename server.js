@@ -30,8 +30,8 @@ app.listen(3000, () => console.log('web server running on port 3000'))
 //     })
 // })
 
-//---------rendering create User page ------
 
+//------rendering create user page ------
 app.get('/users/create',(req,res)=>{
     res.render('createUser')
 })
@@ -49,8 +49,8 @@ app.get('/users/:userid', async (req,res)=>{
     res.render("profile",{user, tasks, boards})
 })
 
-//--------create board ------
 
+//--------create board ------
 app.post('/boards/create',async (req,res)=>{
     console.log('creating board')
     const board = await Board.create({name:req.body.name,description:req.body.description,})
@@ -58,16 +58,16 @@ app.post('/boards/create',async (req,res)=>{
 })
 
 
-//--------create user ------
 
+//--------create user ------
 app.post('/users/create',async (req,res)=>{
     console.log('creating user')
     const user = await User.create({username:req.body.username,avatar:req.body.avatar})
     res.redirect(`/users/${user.id}`)
 })
 
-//-----rendering home page-----
 
+//-----rendering home page-----
 app.get('/',async (req,res)=>{
     const boards = await Board.findAll({
         include: [{model:User}],
@@ -85,8 +85,8 @@ app.post('/finduser', async (req,res)=>{
     res.redirect(`/users/${user.id}`)
 })
 
-//------rendering board-----
 
+//------rendering board-----
 app.get('/boards/:boardid',async (req,res)=>{
     const board = await Board.findByPk(req.params.boardid)
     const users = await User.findAll()
@@ -103,8 +103,8 @@ app.get('/boards/:boardid',async (req,res)=>{
     res.render('board',{board,inProgress,done,toDo,users,boardUsers})//,avatars})
 })
 
-//----assign user to board---
 
+//----assign user to board---
 app.post('/boards/:boardid/users/add',async (req,res)=>{
     const board = await Board.findByPk(req.params.boardid)
     const users = await User.findAll({where:{username:req.body.username}})
@@ -113,8 +113,8 @@ app.post('/boards/:boardid/users/add',async (req,res)=>{
     res.redirect(`/boards/${req.params.boardid}`)
 })
 
-//---remove assigned user from board---
 
+//---remove assigned user from board---
 app.post('/boards/:boardid/users/remove',async (req,res)=>{
     const board = await Board.findByPk(req.params.boardid)
     const users = await User.findAll({where:{username:req.body.username}})
@@ -123,8 +123,8 @@ app.post('/boards/:boardid/users/remove',async (req,res)=>{
     res.redirect(`/boards/${req.params.boardid}`)
 })
 
-//----create task -----
 
+//----create task -----
 app.post('/boards/:boardid/tasks/create',async (req,res) =>{
     const task = await Task.create({taskName:req.body.taskName,taskDescription:req.body.taskDescription,status:req.body.status,priority:req.body.priority,deadline:req.body.deadline})
     const board = await Board.findByPk(req.params.boardid)
@@ -137,16 +137,16 @@ app.post('/boards/:boardid/tasks/create',async (req,res) =>{
     res.redirect(`/boards/${req.params.boardid}`)
 })
 
-//----edit board------
 
+//----edit board------
 app.post('/boards/:boardid/edit',async (req,res) =>{
     const board = await Board.findByPk(req.params.boardid)
     await board.update({name:req.body.name,description:req.body.description})
     res.redirect('/')
 })
 
-//----update task-----
 
+//----update task-----
 app.post('/boards/:boardid/tasks/:taskid/update',async (req,res)=>{
     const task = await Task.findByPk(req.params.taskid)
     await task.update({taskName:req.body.taskName,taskDescription:req.body.taskDescription,status:req.body.status,priority:req.body.priority,deadline:req.body.deadline})
@@ -158,22 +158,23 @@ app.post('/boards/:boardid/tasks/:taskid/update',async (req,res)=>{
     res.redirect(`/boards/${req.params.boardid}`)
 })
 
-//-----edit user-------
 
+//-----edit user-------
 app.post('/users/:userid/edit',async (req,res) =>{
     const user = await User.findByPk(req.params.userid)
     await user.update({username:req.body.username,avatar:req.body.avatar})
     res.redirect(`/boards/${req.params.boardid}`)
 })
 
-//-----destroy user ----
 
+//-----destroy user ----
 app.get('/user/:userid/delete', async (req,res)=>{
     await Task.findByPk(req.params.userid).then(user =>{
         user.destroy()
     })
     res.redirect('/')
 })
+
 
 //-----destroy task ----
 app.get('/boards/:boardid/tasks/:taskid/delete', async (req,res)=>{
@@ -183,8 +184,8 @@ app.get('/boards/:boardid/tasks/:taskid/delete', async (req,res)=>{
     res.redirect(`/boards/${req.params.boardid}`)
 })
 
-//-----destroy board ----
 
+//-----destroy board ----
 app.get('/boards/:boardid/delete', async (req,res)=>{
     const board = await Board.findByPk(req.params.boardid)
     await board.destroy()
@@ -219,8 +220,8 @@ app.get('/users',async (req,res) =>{
     res.send(users)
 })
 
-//-----changing status of tasks from board-------
 
+//-----changing status of tasks from board-------
 app.post('/tasks/:taskid/update',async(req,res)=>{
     const task = await Task.findByPk(req.params.taskid)
     console.log(req.body)
@@ -230,8 +231,8 @@ app.post('/tasks/:taskid/update',async(req,res)=>{
     res.send()
 })
 
-//---destroying task from board-----
 
+//---destroying task from board-----
 app.post('/tasks/:taskid/delete',async(req,res)=>{
     const task = await Task.findByPk(req.params.taskid)
     await task.destroy()
