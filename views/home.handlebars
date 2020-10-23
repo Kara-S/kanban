@@ -170,8 +170,33 @@
 </div>
 
 
-<script>
+{{!-- Button to scroll to top --}}
+<footer>
+    <button onclick="topFunction()" id="topButton" title="Scroll to top">TOP</button>
 
+    <script>
+        var mybutton = document.getElementById("topButton");
+        
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+            } else {
+            mybutton.style.display = "none";
+            }
+        }
+        
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</footer>
+
+
+{{!-- Dropdown list --}}
+<script>
     function myFunction() {
         document.getElementById("myDropdown").classList.toggle("show");
     }
@@ -188,7 +213,6 @@
             }
         }
     }
-
 </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

@@ -500,3 +500,28 @@ select[name="assignee"] {
 .show {
   display: block;
 }
+
+
+
+/*---------- SCROLL TO TOP BUTTON --------*/
+#topButton {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  padding: 12px;
+  border-radius: 23%;
+  
+  background-color: #276190;
+  color: white;
+  font-family: 'Open Sans', 'Helvetica Nue', sans-serif;
+  
+  cursor: pointer;
+}
+
+#topButton:hover {
+  background-color: #235078;
+}
