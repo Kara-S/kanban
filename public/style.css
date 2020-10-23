@@ -242,7 +242,6 @@ select[name="priority"] {
   width: 330px;
 }
 
-
 /* "Assignee" box */
 select[name="assignee"] {
   padding: 5px;
@@ -303,7 +302,7 @@ select[name="assignee"] {
   appearance: none;
   -webkit-appearance: none;
   padding: 2.5px;
-  background-color: #98caec;
+  background-color: #276190;
   color: #fff;
   font-weight: 600;
   border-radius: 5px;

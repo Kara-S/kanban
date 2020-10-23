@@ -28,7 +28,7 @@
 <div class="jumbotron" style="background-color: #98CAEC;">
     
     <div class="main-title">
-        <h1 class="display-4">All Boards</h1>
+        <h1 class="display-4">Kanban Boards</h1>
     </div>
 
 </div>
@@ -44,16 +44,16 @@
 		<div class="content">
 			
             <form action='/users/create' method='POST'>
-        
-        <label>Username:</label>
-        <input type='text' name = 'username' required/><br>
-        
-        <label>Avatar URL:</label>
-        <input type='url' name ='avatar' required/><br>
-        
-        <button class="popupbtn">submit</button>
+                
+                <label>Username:</label>
+                <input type='text' name = 'username' required/><br>
+                
+                <label>Avatar URL:</label>
+                <input type='url' name ='avatar' required/><br>
+                
+                <button class="popupbtn">SUBMIT</button>
 
-    </form>
+            </form>
 		</div>
 	</div>
 </div>
@@ -76,7 +76,7 @@
                 <label>Description:</label>
                 <input type='text' name ='description' required/><br>
 
-                <button class="popupbtn">submit</button>
+                <button class="popupbtn">SUBMIT</button>
 
             </form>
 		</div>
@@ -109,8 +109,8 @@
                 <h6 class="card-subtitle mb-2 text-muted">{{this.description}}</h6>
                 <p class="card-text">{{#each this.users}} {{this.username}} {{/each}}</p>
                 <div class="btn-group2" role="group" aria-label="Third group">
-                    <a href="/boards/{{this.id}}/delete" method="POST" class="btn btn-secondary" style="background-color: #276190;">DELETE</a>
-                    <a href="#editBoard{{this.id}}" class="btn btn-secondary" style="background-color: #276190;">EDIT</a>
+                    <a href="/boards/{{this.id}}/delete" method="POST" class="btn btn-secondary">DELETE</a>
+                    <a href="#editBoard{{this.id}}" class="btn btn-secondary">EDIT</a>
                 </div>
             </div>
             </a>
@@ -126,7 +126,7 @@
                         <input type='text' name = 'name' value='{{this.name}}' required/><br>
                         <label>description:</label>
                         <input type='text' name ='description' value='{{this.description}}' required/><br>
-                        <button class="popupbtn">submit</button>
+                        <button class="popupbtn">SUBMIT</button>
                     </form>
                 </div>
             </div>
