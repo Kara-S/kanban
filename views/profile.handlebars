@@ -39,9 +39,19 @@
 
 {{!-- Username and avatar display --}}
 <div class="jumbotron" style="background-color: #98CAEC;">
-    <h1 class="display-4">{{user.username}}'s Profile</h1>
-    <div class="avatar-box">
-        <img class="profile-pic" src={{user.avatar}} />
+    <div class="title-row">
+        <div class="avatar-column">
+
+            <div class="avatar-box">
+                <img class="profile-pic" src={{user.avatar}} />
+            </div> 
+
+        </div>
+
+        <div class="title-column">
+            <h1 class="display-4">{{user.username}}'s Profile</h1>
+        </div>
+
     </div>
 </div>
 
@@ -89,15 +99,22 @@
 {{!-- Create User popup --}}
 <div id="createUser" class="overlay">
     <div class="popup">
+
         <h2>Create User</h2>
         <a class="close" href="#">&times;</a>
+
         <div class="content">
+
             <form action='/users/create' method='POST'>
-                <label>Username</label>
+
+                <label>Username:</label>
                 <input type='text' name = 'username' required/><br>
-                <label>Avatar URL</label>
+
+                <label>Avatar URL:</label>
                 <input type='url' name ='avatar' required/><br>
+
                 <button class="popupbtn">submit</button>
+
             </form>
         </div>
     </div>
@@ -107,15 +124,22 @@
 {{!-- Create Board popup --}}
 <div id="createBoard" class="overlay">
     <div class="popup">
+
         <h2>Create Board</h2>
         <a class="close" href="#">&times;</a>
+
         <div class="content">
+
             <form action='/boards/create' method='POST'>
-                <label>Name</label>
+
+                <label>Name:</label>
                 <input type='text' name = 'name' required/><br>
-                <label>description</label>
+
+                <label>Description:</label>
                 <input type='text' name ='description' required/><br>
+
                 <button class="popupbtn">submit</button>
+
             </form>
         </div>
     </div>

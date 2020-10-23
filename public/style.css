@@ -26,10 +26,36 @@
 
 /* Page title text */
 .display-4 {
-  position: relative;
   font-family: 'PT Sans Caption', sans-serif;
-  left: 46%;
   color: #276190;
+  font-size: 4.5vw;
+}
+
+/* Homepage title */
+.main-title {
+  display: flex;
+  align-items: center;
+  padding: 27px 0px 27px 263px;
+}
+
+/* Profile title & avatar box */
+.title-row {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  justify-content: center;
+  
+}
+.avatar-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.title-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 30px;
 }
 
 
@@ -39,8 +65,8 @@
 /* "Username" label */
 .username2 {
   margin-left: 20px;
-  position: relative ;
-  left: 37.5%;
+  position: relative;
+  left: 13%;
   font-size: 17px;
   color: #276190;
   font-weight: 500;
@@ -55,7 +81,7 @@
   margin-left: 2px;
   width: 18%;
   position: relative;
-  left: 37.5%;
+  left: 13%;
 }
 
 /* "Find" button */
@@ -70,9 +96,8 @@
   border-radius: 20px;
   width: 5%;
   position: relative;
-  left: 37.5%;
+  left: 13%;
   margin: 8px;
-  margin-bottom: 80px;
 }
 
 
@@ -135,6 +160,13 @@
 }
 
 
+/* Organise lines */
+label { 
+  display: inline-block; 
+  width: 100px; 
+  text-align: left; 
+}
+
 
 
 /*----------- "CREATE USER" POPUP -----------*/
@@ -143,6 +175,7 @@ input[name="username"] {
   padding: 5px;
   margin: 6px;
   border-radius: 5px; 
+  width: 330px;
 }
 
 /* "Avatar URL" box */
@@ -150,6 +183,7 @@ input[type="url"] {
   padding: 5px;
   margin: 6px;
   border-radius: 5px;
+  width: 330px;
 }
 
 
@@ -161,6 +195,7 @@ input[name="name"] {
   padding: 5px;
   margin: 6px;
   border-radius: 5px;
+  width: 330px;
 }
 
 /* "Description" box */
@@ -168,6 +203,7 @@ input[name="description"] {
   padding: 5px;
   margin: 6px;
   border-radius: 5px;
+  width: 330px;
 }
 
 
@@ -179,6 +215,7 @@ input[name="taskName"] {
   padding: 5px;
   margin: 6px;
   border-radius: 5px;
+  width: 330px;
 }
 
 /* "Description" box */
@@ -186,45 +223,43 @@ input[name="taskDescription"] {
   padding: 5px;
   margin: 6px;
   border-radius: 5px;
+  width: 330px;
 }
 
-/* "Deadline box" */
-input[type="date"] {
+/* "Deadline" box */
+input[name="deadline"] {
   padding: 5px;
   margin: 6px;
   border-radius: 5px;
+  width: 330px;
+}
+
+/* "Priority" box */
+select[name="priority"] {
+  padding: 5px;
+  margin: 6px;
+  border-radius: 5px;
+  width: 330px;
+}
+
+
+/* "Assignee" box */
+select[name="assignee"] {
+  padding: 5px;
+  margin: 6px;
+  border-radius: 5px;
+  width: 330px;
 }
 
 
 
-
-/*----- "ASSIGN USER TO BOARD" POPUP -----*/
+/*----- "ASSIGN/UNASSIGN USER" POPUPS -----*/
 /* Drop-down box */
 .selectassign {
-  padding: 10px;
-  margin: 20px;
-  width: 90%;
-}
-
-
-
-
-/*------------- ALL BOARDS --------------*/
-/* Homepage board container */
-.boards-container {
-  background-color: rgb(227, 242, 245);
-  margin-left: 30px;
-  margin-right: 30px;
-  margin: 30px;
-  border-radius: 25px;
-  height:900px;
-  padding-left: 82px;
-}
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
+  padding: 5px;
+  margin: 6px;
+  border-radius: 5px;
+  width: 437px;
 }
 
 
@@ -239,7 +274,7 @@ input[type="date"] {
   border-radius: 45%;
   box-shadow: 1px 1px 15px -5px black;
   overflow: hidden;
-  position: fixed;
+  float: left;
 }
 
 /* Frame on task cards */
@@ -343,10 +378,30 @@ input[type="date"] {
   margin: 5px;
 }
 
-
+/* Column titles */
+.assignheader {
+  font-size: 35px;
+}
 
 
 /*----------------- FLEXBOX ------------------*/
+/* Homepage board container */
+.boards-container {
+  background-color: rgb(227, 242, 245);
+  margin-left: 30px;
+  margin-right: 30px;
+  margin: 30px;
+  border-radius: 25px;
+  height:900px;
+  padding-left: 82px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
+
 /* Main div for profile & boards */
 .tasks-boards-flexbox {
   margin: 30px;
@@ -403,3 +458,7 @@ input[type="date"] {
   align-items: center;
 }
 
+/* All 3 columns' titles */
+.column-title {
+  font-size: 35px;
+}
