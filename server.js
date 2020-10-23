@@ -59,12 +59,26 @@ app.post('/boards/create',async (req,res)=>{
 
 
 
-//--------create user ------
+
+
+
+//--------create user from URL ------
 app.post('/users/create',async (req,res)=>{
     console.log('creating user')
     const user = await User.create({username:req.body.username,avatar:req.body.avatar})
     res.redirect(`/users/${user.id}`)
 })
+
+// //--------create user from file------
+app.post('/users/createfile',async (req,res)=>{
+    console.log('creating user')
+    const user = await User.create({username:req.body.username,avatar:req.body.avatar})
+    res.redirect(`/users/${user.id}`)
+})
+
+
+
+
 
 
 //-----rendering home page-----

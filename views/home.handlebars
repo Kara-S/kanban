@@ -61,7 +61,7 @@
 <div id="createUser" class="overlay">
 	<div class="popup">
 
-		<h2>Create User</h2>
+		<h2>Create User from URL</h2>
 
 		<a class="close" href="#">&times;</a>
 		<div class="content">
@@ -86,18 +86,18 @@
 <div id="createUserFile" class="overlay">
 	<div class="popup">
 
-		<h2>Create User</h2>
+		<h2>Create User from File</h2>
 
 		<a class="close" href="#">&times;</a>
 		<div class="content">
 			
-            <form action='/users/create' method='POST'>
+            <form action='/users/createfile' method='POST'>
                 
                 <label>Username:</label>
                 <input type='text' name = 'username' required/><br>
                 
                 <label>Upload Avatar:</label>
-                <input type='file' name ='avatar-file' required/><br>
+                <input type='file' name ='avatar' required/><br>
                 
                 <button class="popupbtn">SUBMIT</button>
 
