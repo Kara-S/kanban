@@ -217,14 +217,20 @@ console.log('script running')
 
                             <div id="editTask${task.id}" class="overlay">
                                 <div class="popup">
+
                                     <h2>Edit Task</h2>
+
                                     <a class="close" href="#">&times;</a>
+
                                     <div class="content">
                                         <form action='/boards/{{board.id}}/tasks/${task.id}/update' method='POST'>
+
                                             <label>Task Title:</label>
                                             <input type='text' name='taskName' value='${task.taskName}' required /><br>
+                                            
                                             <label>Description:</label>
                                             <input type='text' name='taskDescription' value='${task.taskDescription}' required /><br>
+                                            
                                             <label>Priority:</label>
                                             <select name='priority'>
                                                 <option name="low1" ${task.priority == 'Low' ? "selected" : ''}>Low</option>
@@ -232,18 +238,21 @@ console.log('script running')
                                                 <option name='high1' ${task.priority == 'High' ? "selected" : ''}>High</option>
                                                 <option name='urg1' ${task.priority == 'Urgent' ? "selected" : ''}>Urgent</option>
                                             </select><br>
-                                            <label>Assignee</label>
-                                            <select class="selectassign"name='assignee'>
+                                            
+                                            <label>Assignee:</label>
+                                            <select name="assignee">
                                                 <option name="none"></option>
                                                 {{#each users}}
                                                     <option name="{{this.username}}"> {{this.username}} </option>
                                                 {{/each}}
                                             </select><br><br>
-                                            <label>Deadline</label>
+                                            
+                                            <label>Deadline:</label>
                                             <input type="date" name="deadline" ${task.deadline ? `value = '${task.deadline.slice(0,10)}'` : ''} min="2020-01-01" max="2100-01-01"/><br>
                                             <button class="popupbtn">SUBMIT</button>
                                         </form>
                                     </div>
+
                                 </div>
                             </div>
                             `).join('')}
@@ -276,14 +285,20 @@ console.log('script running')
 
                             <div id="editTask${task.id}" class="overlay">
                                 <div class="popup">
+
                                     <h2>Edit Task</h2>
+
                                     <a class="close" href="#">&times;</a>
+
                                     <div class="content">
                                         <form action='/boards/{{board.id}}/tasks/${task.id}/update' method='POST'>
-                                            <label>Task Title</label>
+                                            
+                                            <label>Task Title:</label>
                                             <input type='text' name='taskName' value='${task.taskName}' required /><br>
-                                            <label>Description</label>
+                                            
+                                            <label>Description:</label>
                                             <input type='text' name='taskDescription' value='${task.taskDescription}' required /><br>
+                                            
                                             <label>Priority:</label>
                                             <select name='priority'>
                                                 <option name="low1" ${task.priority == 'Low' ? "selected" : ''}>Low</option>
@@ -291,18 +306,21 @@ console.log('script running')
                                                 <option name='high1' ${task.priority == 'High' ? "selected" : ''}>High</option>
                                                 <option name='urg1' ${task.priority == 'Urgent' ? "selected" : ''}>Urgent</option>
                                             </select><br>
-                                            <label>Assignee</label>
+                                            
+                                            <label>Assignee:</label>
                                             <select name='assignee'>
                                                 <option name="none"></option>
                                                 {{#each users}}
                                                     <option name="{{this.username}}"> {{this.username}} </option>
                                                 {{/each}}
                                             </select><br><br>
-                                            <label>Deadline</label>
+                                            
+                                            <label>Deadline:</label>
                                             <input type="date" name="deadline" ${task.deadline ? `value = '${task.deadline.slice(0,10)}'` : ''} min="2020-01-01" max="2100-01-01"/><br>
                                             <button class="popupbtn">SUBMIT</button>
                                         </form>
                                     </div>
+                                
                                 </div>
                             </div>
                             `).join('')}
@@ -335,14 +353,20 @@ console.log('script running')
 
                             <div id="editTask${task.id}" class="overlay">
                                 <div class="popup">
+
                                     <h2>Edit Task</h2>
+
                                     <a class="close" href="#">&times;</a>
+
                                     <div class="content">
                                         <form action='/boards/{{board.id}}/tasks/${task.id}/update' method='POST'>
-                                            <label>Task Title</label>
+                                            
+                                            <label>Task Title:</label>
                                             <input type='text' name='taskName' value='${task.taskName}' required /><br>
-                                            <label>Description</label>
+                                            
+                                            <label>Description:</label>
                                             <input type='text' name='taskDescription' value='${task.taskDescription}' required /><br>
+                                            
                                             <label>Priority:</label>
                                             <select name='priority'>
                                                 <option name="low1" ${task.priority == 'Low' ? "selected" : ''}>Low</option>
@@ -350,19 +374,23 @@ console.log('script running')
                                                 <option name='high1' ${task.priority == 'High' ? "selected" : ''}>High</option>
                                                 <option name='urg1' ${task.priority == 'Urgent' ? "selected" : ''}>Urgent</option>
                                             </select><br>
-                                            <label>Assignee</label>
+                                            
+                                            <label>Assignee:</label>
                                             <select name='assignee'>
                                                 <option name="none"></option>
                                                 {{#each users}}
                                                     <option name="{{this.username}}"> {{this.username}} </option>
                                                 {{/each}}
                                             </select><br><br>
-                                            <label>Deadline</label>
+                                            
+                                            <label>Deadline:</label>
                                             <input type="date" name="deadline" ${task.deadline ? `value = '${task.deadline.slice(0,10)}'` : ''} min="2020-01-01" max="2100-01-01" /><br>
+                                            
                                             <button class="popupbtn">SUBMIT</button>
                                         </form>
                                     </div>
                                 </div>
+                            
                             </div>
                         `).join('')}
                         </div>

@@ -25,13 +25,28 @@
 
 
 {{!-- Main title --}}
-<div class="jumbotron" style="background-color: #98CAEC;">
-    
+<div class="jumbotron" style="background-color: #98CAEC;">   
     <div class="main-title">
         <h1 class="display-4">Kanban Boards</h1>
-    </div>
 
+        {{!-- Find username box --}}
+        <div class="find-user">
+            <form action='/finduser' method='POST'>
+                <label class="username2" for="username">Username:</label>
+                <select class="username3" name="username1">
+                    {{#each users}}
+                        <option name="{{this.username}}"> {{this.username}} </option>
+                    {{/each}}
+                </select>
+                <button class="popupbtnhome">Find</button>
+            </form>
+        </div>
+
+    </div>
 </div>
+
+
+
 
 
 {{!-- Create User popup --}}
@@ -81,20 +96,6 @@
             </form>
 		</div>
 	</div>
-</div>
-
-
-{{!-- Find username box --}}
-<div> 
-    <form action='/finduser' method='POST'>
-        <label class="username2" for="username">Username:</label>
-        <select class="username3" name="username1">
-            {{#each users}}
-                <option name="{{this.username}}"> {{this.username}} </option>
-            {{/each}}
-        </select>
-        <button class="popupbtnhome">Find</button>
-    </form>
 </div>
 
 

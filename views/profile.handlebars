@@ -72,10 +72,11 @@
             {{#each boards}}
                 <div class="todo-column1" >
                     <div class="card1">
-                <a href='/boards/{{this.id}}'>
-                    <div class="cardbodyass">
-                        <h4 class="card-title">{{this.name}}</h4>
-                        <h5 class="card-subtitle mb-2 text-muted">{{this.description}}</h5>
+                        <div class="cardbodyass">
+                            <a href='/boards/{{this.id}}'>
+                            <h4 class="card-title" style="color: #1c0b19;">{{this.name}} </h4>
+                            <h5 class="card-text" style="color: #1c0b19;">{{this.description}}</h5>
+                        </div>
                     </div>
                 </div>
                 </a>
