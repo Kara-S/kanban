@@ -27,7 +27,7 @@
 /* Page title text */
 .display-4 {
   font-family: 'PT Sans Caption', sans-serif;
-  color: #276190;
+  color: #173753;
 }
 
 /* Homepage title */
@@ -479,7 +479,7 @@ select[name="assignee"] {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color:#173753;
+  background-color:#276190;
   min-width: 140px;
   overflow: auto;
   z-index: 1;
